@@ -1,6 +1,6 @@
-# Sàng Lọc Bàn Chân Tiểu Đường
+# Bước Chân Khỏe Mạnh
 
-[Mở nguyên mẫu trên GitHub Pages](https://btphuong3011.github.io/sang-loc-ban-chan-tieu-duong/)
+[Mở nguyên mẫu trên GitHub Pages](https://btphuong3011.github.io/buoc-chan-khoe-manh/)
 
 Mở `index.html` bằng trình duyệt. Nguyên mẫu chạy bằng HTML, CSS và JavaScript, với ba ca hư cấu để minh họa luồng ghi nhận, đánh giá và in phiếu A4.
 
