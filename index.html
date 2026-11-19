@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ed">
+  <title>Sàng Lọc Bàn Chân Tiểu Đường</title>
+  <meta name="description" content="Nguyên mẫu sàng lọc bàn chân tiểu đường tại trạm y tế xã, với ca hư cấu và phiếu bàn giao A4.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="model.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#kham">Đến bàn ghi nhận</a>
+  <header class="shell masthead">
+    <a href="#" class="brand"><span class="brand-icon" aria-hidden="true"></span> Sàng Lọc Bàn Chân Tiểu Đường</a>
+    <span class="live-label"><i aria-hidden="true"></i> Nguyên mẫu mô phỏng</span>
+  </header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="overline">CHĂM SÓC BAN ĐẦU TẠI TRẠM Y TẾ XÃ</p>
+        <h1 id="hero-title">Sàng lọc <em>bàn chân</em><br>tiểu đường</h1>
+        <p>Ghi nhận trong lần tái khám, xem dữ kiện cần bổ sung và bàn giao bước tiếp theo trên một tờ giấy.</p>
+        <a href="#kham" class="button light">Thử quy trình</a>
+      </div>
+      <div class="hero-image"><img src="tram-y-te.jpg" alt="Minh họa cuộc trò chuyện tại trạm y tế xã"><span>Ảnh minh họa</span></div>
+    </section>
+
+    <section class="examples" aria-labelledby="examples-title">
+      <div class="examples-lead">
+        <h2 id="examples-title">Thử một ca mẫu</h2><p>Ba tình huống với dữ liệu hư cấu.</p>
+      </div>
+      <div class="example-list" id="example-list"></div>
+    </section>
+
+    <section class="workspace" id="kham" aria-label="Bàn ghi nhận sàng lọc">
+      <div class="station">
+        <nav class="steps" aria-label="Các bước mô phỏng">
+          <button type="button" data-step="0" aria-controls="step-map"><span>01</span> Sơ đồ bàn chân</button>
+          <button type="button" data-step="1" aria-controls="step-review"><span>02</span> Đánh giá nguy cơ</button>
+          <button type="button" data-step="2" aria-controls="step-sheet"><span>03</span> Phiếu bàn giao</button>
+        </nav>
+        <div class="panel">
+          <section id="step-map" data-panel>
+            <div class="panel-head">
+              <div><p class="overline">GHI NHẬN CẢM GIÁC</p><h2 tabindex="-1">Sơ đồ bàn chân</h2></div>
+              <span class="meter-tag" id="map-count">0/6 điểm đã ghi</span>
+            </div>
+            <p class="panel-lede">Chọn một điểm để ghi phản hồi của ca mô phỏng.</p>
+            <div class="footboard" id="footboard"></div>
+            <div class="point-editor" aria-label="Ghi nhận phản hồi">
+              <div><strong id="point-name">Bàn chân trái · Ngón cái</strong><small>Phản hồi tại điểm đang chọn</small></div>
+              <div class="segmented" id="point-choices" role="group" aria-label="Phản hồi tại điểm đang chọn">
+                <button type="button" data-point-value="felt">Cảm nhận</button>
+                <button type="button" data-point-value="missed">Không cảm nhận</button>
+                <button type="button" data-point-value="unknown">Chưa ghi</button>
+              </div>
+            </div>
+            <div class="panel-actions"><button type="button" class="button main" data-go="1">Sang phần đánh giá</button></div>
+          </section>
+
+          <section id="step-review" data-panel hidden>
+            <div class="panel-head"><div><p class="overline">DỮ KIỆN CHUYÊN MÔN</p><h2 tabindex="-1">Đánh giá nguy cơ</h2></div></div>
+            <p class="panel-lede">Chọn tình trạng mà nhân viên y tế đã ghi nhận trong ca mô phỏng.</p>
+            <fieldset class="clinical-row alert-row">
+              <legend>Tổn thương đang có</legend>
+              <p>Ví dụ vết loét mới, sưng nóng đỏ hoặc chảy dịch. Trường hợp nghi nặng như vết loét kèm sốt hay hoại tử được ưu tiên chuyển đánh giá khẩn.</p>
+              <div class="segmented" id="active-options" role="group" aria-label="Tình trạng tổn thương">
+                <button type="button" data-field="active" data-value="unknown">Chưa rõ</button>
+                <button type="button" data-field="active" data-value="none">Không ghi nhận</button>
+                <button type="button" data-field="active" data-value="active">Có tổn thương</button>
+                <button type="button" data-field="active" data-value="urgent">Nghi tình trạng nặng</button>
+              </div>
+            </fieldset>
+            <div id="risk-fields"></div>
+            <div class="panel-actions"><button type="button" class="button quiet" data-go="0">Xem lại sơ đồ</button><button type="button" class="button main" data-go="2">Xem phiếu bàn giao</button></div>
+          </section>
+
+          <section id="step-sheet" data-panel hidden>
+            <div class="panel-head"><div><p class="overline">BÀN GIAO SAU SÀNG LỌC</p><h2 tabindex="-1">Phiếu bàn giao</h2></div></div>
+            <p class="panel-lede">Phiếu A4 cho ca minh họa, có kết quả, dữ kiện và phần nhắc theo dõi.</p>
+            <article class="receipt" id="receipt" aria-label="Phiếu sàng lọc A4">
+              <div class="receipt-head"><div><p>MÔ PHỎNG TRẠM Y TẾ XÃ</p><h3>Phiếu sàng lọc bàn chân tiểu đường</h3></div><strong>A4</strong></div>
+              <div class="receipt-outcome" id="receipt-outcome"></div>
+              <h4>Ghi nhận trên sơ đồ</h4><ul class="receipt-points" id="receipt-points"></ul>
+              <h4>Dữ kiện đánh giá</h4><ul class="receipt-factors" id="receipt-factors"></ul>
+              <h4>Nhắc chăm sóc bàn chân</h4>
+              <p>Quan sát bàn chân hằng ngày, có thể dùng gương để nhìn lòng bàn chân. Mang giày dép phù hợp và liên hệ cơ sở y tế sớm nếu thấy vết thương hoặc vùng sưng, đỏ mới xuất hiện.</p>
+              <p class="receipt-note">Phiếu minh họa bằng dữ liệu hư cấu. Quyết định khám, chuyển tuyến và lịch theo dõi thực tế thuộc nhân viên y tế.</p>
+            </article>
+            <div class="panel-actions"><button type="button" class="button quiet" data-go="1">Sửa dữ kiện</button><button type="button" class="button main" id="print-sheet">In phiếu A4</button></div>
+          </section>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="side-card">
+          <div class="side-top"><h2>Tóm tắt ca</h2><button type="button" class="text-button" id="reset">Ca mới</button></div>
+          <p id="case-label">Ca mới · Chưa ghi nhận</p>
+          <div class="mini-progress" aria-hidden="true" id="mini-progress"></div>
+          <p class="side-meta" id="side-count">0/6 điểm đã ghi</p>
+          <div class="outcome" id="outcome" role="status"></div>
+          <button type="button" class="button quiet side-button" id="review-link" data-go="1">Ghi nhận tổn thương</button>
+        </div>
+        <details class="sources">
+          <summary>Căn cứ chuyên môn</summary>
+          <p>Bảng phân tầng tham chiếu dành cho người không có tổn thương đang hoạt động.</p>
+          <ul>
+            <li><a href="https://iwgdfguidelines.org/wp-content/uploads/2023/07/IWGDF-2023-02-Prevention-Guideline.pdf" target="_blank" rel="noopener">IWGDF 2023 · Phòng loét bàn chân</a></li>
+            <li><a href="https://ttytchuse.gialai.gov.vn/Document/Details.aspx?id=NjI%3D" target="_blank" rel="noopener">Bộ Y tế · Quyết định 1530/QĐ-BYT</a></li>
+            <li><a href="https://www.nice.org.uk/guidance/ng19/chapter/recommendations#diabetic-foot-problems" target="_blank" rel="noopener">NICE NG19 · Chuyển đánh giá</a></li>
+          </ul>
+        </details>
+      </aside>
+      <p class="sr-only" id="announcement" role="status"></p>
+    </section>
+  </main>
+  <footer class="shell footer">Dữ liệu hư cấu · Nguyên mẫu chạy trên trình duyệt · Không yêu cầu thông tin cá nhân</footer>
+</body>
+</html>
